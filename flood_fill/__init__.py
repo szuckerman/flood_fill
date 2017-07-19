@@ -37,3 +37,12 @@ class Board:
 			self.board[start_y+i][start_x+size] = self.character
 
 
+def flood_fill(y, x, board):
+	if board.board[y][x] == 'X':
+		return
+	# print('X: %s, Y: %s' % (x,y))
+	board.board[y][x] = 'X'
+	flood_fill(y+1, x, board)
+	flood_fill(y-1, x, board)
+	flood_fill(y, x+1, board)
+	flood_fill(y, x-1, board)
