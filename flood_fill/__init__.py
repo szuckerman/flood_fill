@@ -6,7 +6,8 @@ class Board:
 		self.width = width
 		self.height = height
 		self.character = character
-	
+		self.init_board()
+
 	def init_board(self):
 		self._top_row = list(self.character*self.width)
 		self._bottom_row = self._top_row
@@ -34,3 +35,5 @@ class Board:
 			self.board[start_y+i][start_x] = self.character
 			self.board[start_y+size][start_x+i] = self.character
 			self.board[start_y+i][start_x+size] = self.character
+
+
