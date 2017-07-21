@@ -1,7 +1,7 @@
 from flood_fill import Board, flood_fill
 from collections import deque
 
-board=Board(25,15)
+board=Board(1000,720)
 board.print_board()
 
 board.create_square_object()
@@ -23,6 +23,7 @@ board.print_board()
 # Now done iteratively
 start_y, start_x = 10, 10
 QUEUE=deque([(start_y, start_x)])
+MY_SET={(start_y, start_x)}
 
 while len(QUEUE):
 	y, x = QUEUE.pop()
@@ -35,5 +36,19 @@ while len(QUEUE):
 	QUEUE.appendleft((y, x-1))
 
 
+board=Board(1000,720)
+board.create_square_object()
+starting_y, starting_x = 10, 15
+
+
+while len(MY_SET):
+	y, x = MY_SET.pop()
+	if board.board[y][x] == 'X':
+		continue
+	board.board[y][x] = 'X'
+	MY_SET.add((y+1, x))
+	MY_SET.add((y-1, x))
+	MY_SET.add((y, x+1))
+	MY_SET.add((y, x-1))
 
 
